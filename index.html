@@ -108,7 +108,7 @@
           "name": "Who is Veerachit?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Veerachit is an entrepreneur and CEO based in Bangkok. Since 2006, he has built five companies across branding, AI transformation, global sourcing, print, and food & beverage. He approaches each venture with the same discipline: craft and commercial sense are not opposites."
+            "text": "Veerachit Jaruthanadech (วีรชิต จารุธนเดช) is an entrepreneur and CEO based in Bangkok. Since 2006, he has built five companies across branding, AI transformation, global sourcing, print, and food & beverage. He approaches each venture with the same discipline: craft and commercial sense are not opposites."
           }
         },
         {
@@ -428,6 +428,36 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 @keyframes drift{
   0%{transform:translateX(-50%) translateY(0) scale(1)}
   100%{transform:translateX(-50%) translateY(26px) scale(1.07)}
+}
+
+/* ---- hero ambient drifting orbs ----------------------------- */
+.hero-orb{
+  position:absolute;border-radius:50%;pointer-events:none;z-index:0;
+  filter:blur(90px);will-change:transform;
+}
+.hero-orb-1{
+  width:min(72vw,820px);height:min(72vw,820px);
+  top:-18%;left:-12%;
+  background:radial-gradient(circle,rgba(139,92,246,.32),transparent 65%);
+  animation:orbDrift1 26s ease-in-out infinite alternate;
+}
+.hero-orb-2{
+  width:min(56vw,680px);height:min(56vw,680px);
+  bottom:-14%;right:-8%;
+  background:radial-gradient(circle,rgba(79,125,255,.26),transparent 65%);
+  animation:orbDrift2 34s ease-in-out infinite alternate;
+}
+@keyframes orbDrift1{
+  0%  {transform:translate(0,0)       scale(1)}
+  30% {transform:translate(14%,10%)   scale(1.08)}
+  65% {transform:translate(5%,20%)    scale(0.96)}
+  100%{transform:translate(18%,6%)    scale(1.04)}
+}
+@keyframes orbDrift2{
+  0%  {transform:translate(0,0)       scale(1)}
+  35% {transform:translate(-12%,-10%) scale(1.1)}
+  70% {transform:translate(-4%,-18%)  scale(0.94)}
+  100%{transform:translate(-14%,-5%)  scale(1.07)}
 }
 .hero-grain{
   position:absolute;inset:0;z-index:1;pointer-events:none;opacity:.5;
@@ -947,6 +977,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   font-size:clamp(1.4rem,4.4vw,2.9rem);letter-spacing:-.025em;
   padding-bottom:.12em;border-bottom:2px solid var(--line-2);
   transition:border-color .35s var(--ease);
+  white-space:nowrap;vertical-align:middle;
 }
 .mail-link:hover{border-color:var(--violet-light)}
 .mail-link .ar{
@@ -1094,6 +1125,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 <!-- ===================== HERO ===================== -->
 <header class="hero" id="top">
   <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-1" aria-hidden="true"></div>
+  <div class="hero-orb hero-orb-2" aria-hidden="true"></div>
   <div class="hero-grain" aria-hidden="true"></div>
 
   <div class="wrap hero-inner">
@@ -1494,11 +1527,11 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
             <span class="faq-icon" aria-hidden="true"></span>
           </button>
           <div class="faq-a"><div class="faq-a-inner"><p>
-            Veerachit is an entrepreneur and CEO based in Bangkok.
-            Since 2006, he has built five companies across branding, AI
-            transformation, global sourcing, print, and food &amp; beverage.
-            He approaches each venture with the same discipline: craft and
-            commercial sense are not opposites.
+            Veerachit Jaruthanadech (วีรชิต จารุธนเดช) is an entrepreneur
+            and CEO based in Bangkok. Since 2006, he has built five companies
+            across branding, AI transformation, global sourcing, print, and
+            food &amp; beverage. He approaches each venture with the same
+            discipline: craft and commercial sense are not opposites.
           </p></div></div>
         </div>
         <div class="faq-item">
