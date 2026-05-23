@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thoughts — Veerachit</title>
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://veerachit.com/post.html">
+
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238B5CF6'/%3E%3Cstop offset='1' stop-color='%234F7DFF'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='22' fill='%230B0A11'/%3E%3Ctext x='50' y='73' font-family='Arial' font-size='66' font-weight='900' fill='url(%23g)' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+/* ============================================================
+   VEERACHIT.COM — post reader
+   Inherits design language from index.html
+   ============================================================ */
+
+:root{
+  --bg:#F2F0F7;
+  --bg-2:#E9E7F2;
+  --surface:#FFFFFF;
+  --surface-2:#EEECF6;
+  --line:rgba(22,19,32,.085);
+  --line-2:rgba(22,19,32,.15);
+  --text:#161320;
+  --text-dim:#5A5668;
+  --text-faint:#6E6A82;
+  --violet:#8B5CF6;
+  --violet-light:#7C3AED;
+  --blue:#4F7DFF;
+  --grad:linear-gradient(108deg,#A989FF 0%,#8B5CF6 38%,#4F7DFF 100%);
+  --maxw:1480px;
+  --pad:clamp(1.15rem,4vw,4.5rem);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:'Inter',-apple-system,system-ui,sans-serif;
+  background:var(--bg);color:var(--text);
+  overflow-x:hidden;line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit}
+::selection{background:var(--violet);color:#fff}
+:focus-visible{outline:2px solid var(--violet-light);outline-offset:3px;border-radius:2px}
+
+/* ---- scroll progress ---------------------------------------- */
+#scrollBar{
+  position:fixed;top:0;left:0;height:2px;width:0;
+  background:var(--grad);z-index:400;
+  transition:width .12s linear;pointer-events:none;
+}
+
+/* ---- layout -------------------------------------------------- */
+.wrap{max-width:var(--maxw);margin:0 auto;padding-left:var(--pad);padding-right:var(--pad)}
+.mono{font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+
+/* ---- nav ----------------------------------------------------- */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:200;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:1.15rem var(--pad);
+  transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);
+}
+.nav.scrolled{
+  background:rgba(248,247,251,.88);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  box-shadow:inset 0 -1px 0 rgba(22,19,32,.1);
+  padding-top:.78rem;padding-bottom:.78rem;
+}
+.brand{display:flex;align-items:center;gap:.55rem;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.16rem;letter-spacing:-.02em}
+.brand-logo{display:block;height:23px;width:auto;filter:invert(0);transition:filter .35s var(--ease)}
+.nav-links{display:flex;gap:.35rem;align-items:center}
+.nav-links a{
+  font-family:'Space Mono',monospace;font-size:.71rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-dim);
+  padding:.55rem .85rem;border-radius:100px;
+  transition:color .3s var(--ease),background .3s var(--ease);
+}
+.nav-links a:hover{color:var(--text)}
+.nav-cta{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'Space Mono',monospace;font-size:.71rem;letter-spacing:.08em;
+  text-transform:uppercase;padding:.7rem 1.15rem;border-radius:100px;
+  background:var(--grad);color:#fff;font-weight:700;
+  box-shadow:0 0 0 1px rgba(255,255,255,.06),0 8px 30px rgba(139,92,246,.36);
+  transition:transform .3s var(--ease),box-shadow .3s var(--ease);
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(139,92,246,.5)}
+.nav-right{display:flex;align-items:center;gap:1.2rem}
+.burger{display:none;flex-direction:column;gap:6px;padding:.45rem}
+.burger span{width:26px;height:2px;background:var(--text);border-radius:2px;transition:transform .35s var(--ease),opacity .25s}
+.nav.open .burger span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+.nav.open .burger span:nth-child(2){opacity:0}
+.nav.open .burger span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+
+.mobile-menu{
+  position:fixed;inset:0;z-index:190;background:var(--bg-2);
+  display:flex;flex-direction:column;justify-content:center;gap:.1rem;
+  padding:var(--pad);transform:translateY(-102%);
+  transition:transform .6s var(--ease);
+}
+.nav.open + .mobile-menu{transform:translateY(0)}
+@keyframes menuIn{from{opacity:0;transform:translateX(-22px)}to{opacity:1;transform:none}}
+.nav.open + .mobile-menu a{animation:menuIn 500ms var(--ease) both}
+.nav.open + .mobile-menu a:nth-child(1){animation-delay:60ms}
+.nav.open + .mobile-menu a:nth-child(2){animation-delay:115ms}
+.nav.open + .mobile-menu a:nth-child(3){animation-delay:170ms}
+.nav.open + .mobile-menu a:nth-child(4){animation-delay:225ms}
+.nav.open + .mobile-menu a:nth-child(5){animation-delay:280ms}
+.nav.open + .mobile-menu a:nth-child(6){animation-delay:335ms}
+.mobile-menu a{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:clamp(2rem,10vw,3.4rem);letter-spacing:-.02em;line-height:1.32;
+  display:flex;align-items:baseline;gap:.9rem;
+}
+.mobile-menu a span{font-family:'Space Mono',monospace;font-size:.78rem;color:var(--violet-light)}
+.mobile-menu a:hover{color:var(--violet-light)}
+.mobile-foot{margin-top:2.2rem;color:var(--text-faint);font-family:'Space Mono',monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase}
+
+/* ---- post layout --------------------------------------------- */
+.post-wrap{
+  max-width:720px;
+  margin:0 auto;
+  padding-left:var(--pad);
+  padding-right:var(--pad);
+  padding-top:8rem;
+  padding-bottom:7rem;
+}
+.post-back{
+  display:inline-flex;align-items:center;gap:.5rem;
+  font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-faint);
+  margin-bottom:2.8rem;
+  transition:color .3s var(--ease);
+}
+.post-back:hover{color:var(--violet-light)}
+.post-back svg{transition:transform .3s var(--ease)}
+.post-back:hover svg{transform:translateX(-3px)}
+
+.post-meta{
+  display:flex;align-items:center;gap:.8rem;flex-wrap:wrap;
+  font-family:'Space Mono',monospace;font-size:.68rem;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--text-faint);
+  margin-bottom:1.2rem;
+}
+.post-meta .p-tag-chip{
+  background:var(--surface-2);border:1px solid var(--line-2);
+  border-radius:100px;padding:.3rem .75rem;color:var(--violet-light);
+}
+.post-title{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:clamp(2rem,5vw,3.6rem);letter-spacing:-.03em;line-height:1.08;
+  margin-bottom:2.8rem;
+}
+
+/* ---- post content typography --------------------------------- */
+.post-content{color:var(--text-dim)}
+.post-content p{font-size:1.07rem;line-height:1.8;margin-bottom:1.5rem;max-width:65ch}
+.post-content h2{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:clamp(1.5rem,3vw,2.2rem);letter-spacing:-.025em;
+  color:var(--text);margin:3.2rem 0 1rem;
+}
+.post-content h3{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:1.25rem;letter-spacing:-.015em;
+  color:var(--text);margin:2.4rem 0 .8rem;
+}
+.post-content h4{
+  font-family:'Space Mono',monospace;font-size:.82rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--violet-light);margin:2rem 0 .6rem;
+}
+.post-content strong{color:var(--text);font-weight:500}
+.post-content em{font-style:italic}
+.post-content a{
+  color:var(--violet-light);border-bottom:1px solid rgba(124,58,237,.3);
+  transition:border-color .3s var(--ease);
+}
+.post-content a:hover{border-color:var(--violet-light)}
+.post-content blockquote{
+  border-left:3px solid var(--violet);padding:1rem 0 1rem 1.6rem;
+  color:var(--text-dim);font-style:italic;font-size:1.08rem;
+  margin:2.4rem 0;
+}
+.post-content ul,.post-content ol{
+  margin:1.2rem 0 1.5rem 1.4rem;
+}
+.post-content li{font-size:1.07rem;line-height:1.75;margin-bottom:.4rem;max-width:65ch}
+.post-content hr{
+  border:0;border-top:1px solid var(--line-2);margin:3rem 0;
+}
+.post-content figure{
+  margin:2.8rem 0;
+}
+.post-content figure img{
+  width:100%;border-radius:14px;border:1px solid var(--line-2);
+  display:block;
+}
+.post-content figcaption{
+  font-family:'Space Mono',monospace;font-size:.64rem;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--text-faint);
+  margin-top:.65rem;text-align:center;
+}
+
+/* ---- loading / error states ---------------------------------- */
+.post-loading{
+  padding:4rem 0;text-align:center;
+  font-family:'Space Mono',monospace;font-size:.72rem;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--text-faint);
+}
+.post-loading .spinner{
+  width:32px;height:32px;border:2px solid var(--line-2);
+  border-top-color:var(--violet-light);border-radius:50%;
+  animation:spin .8s linear infinite;margin:0 auto 1.2rem;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---- footer -------------------------------------------------- */
+.footer{padding:4rem 0 0;border-top:1px solid var(--line);background:var(--bg-2)}
+.footer-bottom{
+  display:flex;justify-content:space-between;flex-wrap:wrap;gap:.8rem;
+  padding:1.7rem var(--pad);
+}
+.footer-bottom .mono{color:var(--text-faint);font-size:.68rem}
+.footer-bottom a{color:var(--text-faint);transition:color .3s}
+.footer-bottom a:hover{color:var(--text)}
+.footer-wordmark{
+  font-family:'Space Grotesk',sans-serif;font-weight:700;
+  font-size:clamp(3.5rem,19vw,17rem);letter-spacing:-.04em;line-height:.8;
+  text-align:center;white-space:nowrap;padding:1.2rem 0 .15em;
+  background:linear-gradient(180deg,rgba(22,19,32,.1),rgba(139,92,246,.04));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+  user-select:none;
+}
+
+/* ---- responsive ---------------------------------------------- */
+@media(max-width:760px){
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  .post-wrap{padding-top:6rem}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+
+<div id="scrollBar" aria-hidden="true"></div>
+
+<!-- NAV -->
+<nav class="nav" id="nav" aria-label="Primary">
+  <a href="index.html" class="brand" aria-label="Veerachit — home">
+    <img src="veerachit-logo-web.png" alt="Veerachit" class="brand-logo" width="1264" height="228">
+  </a>
+  <div class="nav-links">
+    <a href="index.html#about">About</a>
+    <a href="index.html#ventures">Ventures</a>
+    <a href="index.html#photography">Photography</a>
+    <a href="index.html#thoughts" class="active">Thoughts</a>
+    <a href="index.html#faq">FAQ</a>
+  </div>
+  <div class="nav-right">
+    <a href="index.html#contact" class="nav-cta">Get in touch <span aria-hidden="true">→</span></a>
+    <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html#about"><span>01</span>About</a>
+  <a href="index.html#ventures"><span>02</span>Ventures</a>
+  <a href="index.html#photography"><span>03</span>Photography</a>
+  <a href="index.html#thoughts"><span>04</span>Thoughts</a>
+  <a href="index.html#faq"><span>05</span>FAQ</a>
+  <a href="index.html#contact"><span>06</span>Contact</a>
+  <p class="mobile-foot">Bangkok · Hong Kong · UTC+7</p>
+</div>
+
+<!-- POST CONTENT -->
+<main>
+  <div class="post-wrap">
+    <a href="index.html#thoughts" class="post-back">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M10 3L5 8l5 5"/></svg>
+      All thoughts
+    </a>
+
+    <div id="postContainer">
+      <div class="post-loading">
+        <div class="spinner" aria-hidden="true"></div>
+        Loading
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="footer-bottom wrap">
+    <p class="mono">© <span id="year"></span> Veerachit — All rights reserved</p>
+    <p class="mono"><a href="index.html#top">Back to top ↑</a> · Designed in Bangkok</p>
+  </div>
+  <div class="footer-wordmark" aria-hidden="true">VEERACHIT</div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ---- scroll progress + nav --------------------------------- */
+  var nav = document.getElementById('nav');
+  var scrollBar = document.getElementById('scrollBar');
+  function onScroll(){
+    nav.classList.toggle('scrolled', window.scrollY > 40);
+    var h = document.body.scrollHeight - window.innerHeight;
+    scrollBar.style.width = (h > 0 ? (window.scrollY / h * 100) : 0) + '%';
+  }
+  onScroll();
+  window.addEventListener('scroll', onScroll, {passive:true});
+
+  /* ---- mobile menu ------------------------------------------- */
+  var burger = document.getElementById('burger');
+  var menu = document.getElementById('mobileMenu');
+  function toggleMenu(open){
+    nav.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+    burger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.style.overflow = open ? 'hidden' : '';
+  }
+  burger.addEventListener('click', function(){
+    toggleMenu(!nav.classList.contains('open'));
+  });
+  menu.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ toggleMenu(false); });
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape' && nav.classList.contains('open')) toggleMenu(false);
+  });
+
+  /* ---- year -------------------------------------------------- */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  /* ---- Notion block → HTML renderer -------------------------- */
+  /* ⚙ Same proxy URL as index.html */
+  var NOTION_PROXY = 'https://notion-proxy.veerachit.workers.dev';
+
+  function richText(arr){
+    if(!arr || !arr.length) return '';
+    return arr.map(function(t){
+      var s = t.plain_text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      if(t.annotations){
+        if(t.annotations.bold)   s = '<strong>'+s+'</strong>';
+        if(t.annotations.italic) s = '<em>'+s+'</em>';
+        if(t.annotations.code)   s = '<code>'+s+'</code>';
+      }
+      if(t.href) s = '<a href="'+t.href+'" target="_blank" rel="noopener">'+s+'</a>';
+      return s;
+    }).join('');
+  }
+
+  function renderBlocks(blocks){
+    var html = '';
+    var inUl = false, inOl = false;
+    blocks.forEach(function(b){
+      /* close open lists if block type changes */
+      if(b.type !== 'bulleted_list_item' && inUl){ html += '</ul>'; inUl = false; }
+      if(b.type !== 'numbered_list_item' && inOl){ html += '</ol>'; inOl = false; }
+
+      switch(b.type){
+        case 'paragraph':
+          var txt = richText(b.paragraph.rich_text);
+          html += txt ? '<p>'+txt+'</p>' : '<p>&nbsp;</p>';
+          break;
+        case 'heading_1':
+          html += '<h2>'+richText(b.heading_1.rich_text)+'</h2>'; break;
+        case 'heading_2':
+          html += '<h3>'+richText(b.heading_2.rich_text)+'</h3>'; break;
+        case 'heading_3':
+          html += '<h4>'+richText(b.heading_3.rich_text)+'</h4>'; break;
+        case 'bulleted_list_item':
+          if(!inUl){ html += '<ul>'; inUl = true; }
+          html += '<li>'+richText(b.bulleted_list_item.rich_text)+'</li>'; break;
+        case 'numbered_list_item':
+          if(!inOl){ html += '<ol>'; inOl = true; }
+          html += '<li>'+richText(b.numbered_list_item.rich_text)+'</li>'; break;
+        case 'quote':
+          html += '<blockquote>'+richText(b.quote.rich_text)+'</blockquote>'; break;
+        case 'divider':
+          html += '<hr>'; break;
+        case 'image':
+          var src = b.image.type === 'external' ? b.image.external.url : b.image.file.url;
+          var cap = b.image.caption && b.image.caption.length
+            ? richText(b.image.caption) : '';
+          html += '<figure><img src="'+src+'" loading="lazy" alt="'+(cap||'')+'">'
+            +(cap ? '<figcaption>'+cap+'</figcaption>' : '')+'</figure>';
+          break;
+      }
+    });
+    if(inUl) html += '</ul>';
+    if(inOl) html += '</ol>';
+    return html;
+  }
+
+  /* ---- static fallback content (renders without the Worker) --- */
+  var STATIC_POSTS = {
+    '369620ab-c1bd-81c1-8a5d-dbd8dc14aed8': {
+      title: 'The Edit Is the Work',
+      tag: 'Craft', date: '15 April 2026',
+      html: '<p>The reel I made in 2009 had everything in it. Every good frame from that year — all 847 of them. I thought more was proof of work. It wasn\'t. It was proof I couldn\'t choose.</p><p>Editing is not a finishing step. It is the work.</p><hr><h2>The principle applies everywhere</h2><p>The brand brief that holds one claim instead of four. The pitch deck that drops the clever slide for the true one. The photograph that is one frame, not twelve.</p><p>I learned this first through a camera. You shoot fifty frames to find one. The one is not the best of fifty. It is the only one that did not need the other forty-nine.</p><p>I learned it again through branding. Every time a client asks to add one more message, one more product, one more audience — the work gets weaker. Not stronger. Weaker. More words, less meaning.</p><blockquote>What you leave out decides the result. Every time.</blockquote><hr><h2>Why this is hard</h2><p>Removing things feels like loss. It reads as indecision, or laziness, or lack of effort. The brief that says one thing looks less thorough than the brief that says ten.</p><p>It is not. It is harder.</p><p>To cut a line you spent three hours writing — a line that is <em>good</em> — because it dilutes the one line that is <em>right</em>: that takes more confidence than adding another paragraph ever will.</p><p>At Avery &amp; Co, we call the edit the last 30%. It is also the most important 30%. A brand that survives the cut is a brand that knows what it is.</p><hr><h2>The practice</h2><p>Here is how I run it now.</p><ul><li>Write everything first. Get it out.</li><li>Read it once without touching it.</li><li>Find the one sentence you could not remove without losing the point.</li><li>Cut everything that is not in service of that sentence.</li></ul><p>This works for brand strategy. For photography. For operating decisions. For this post.</p><p>Patience with the draft. Ruthlessness with the edit.</p>'
+    },
+    '369620ab-c1bd-8127-b593-f38306fbc0f1': {
+      title: 'Why AI Won\'t Replace the Brief',
+      tag: 'AI', date: '20 March 2026',
+      html: '<p>The best prompt I wrote this year was four words: <em>what am I missing?</em></p><p>Not a brief. Not a specification. Not a 400-word instruction set. Four words — and the output was the most useful thing I got from any AI tool all quarter.</p><hr><h2>What AI is good at</h2><p>AI is fast. It can generate, summarise, restructure, and reframe in the time it takes me to open a new document. It holds more context than I can, retrieves faster than I can, and — in first-draft terms — writes cleaner than most teams I\'ve worked with.</p><p>I use it every day. At Avery AI we build with it, not around it.</p><hr><h2>What AI cannot do</h2><p>It cannot know what the work is <em>for</em>.</p><p>That is the brief. That is still a human job — and not a small one.</p><p>The brief answers: Who is this for? What do we want them to feel? What must we never say? What would success look like in five years, not five weeks? These are not questions AI can answer. They are questions that require knowing something that is not in any document: what the client actually cares about, what the market is ready to hear, what the brand can credibly claim.</p><blockquote>The danger is not that AI replaces thinking. The danger is that it makes it easy to skip thinking.</blockquote><p>Generate output that <em>looks</em> like work, without ever asking the right question. That is the failure mode I watch for.</p><hr><h2>The answer is not less AI</h2><p>Avery AI exists because of this tension, not despite it. The answer to AI-generated mediocrity is not retreating from AI. It is using it with a sharper brief.</p><p>Better question in. Better output out. The tool is only as good as the thinking that runs it.</p><p>This was true of photography. True of print. True of every medium I\'ve worked in.</p><p>The tool changes. The brief stays.</p>'
+    },
+    '369620ab-c1bd-817a-853f-d89b6a247360': {
+      title: 'Twenty Years, One Rule',
+      tag: 'Strategy', date: '10 February 2026',
+      html: '<p>In 2006 I started a branding company in Bangkok. I was twenty years old and I didn\'t know much about running a company. I knew what good looked like — and I knew most work wasn\'t it.</p><p>That gap — between what exists and what could — has been the engine behind everything since.</p><hr><h2>Five companies, one question</h2><p>Avery &amp; Co. Avery AI. Avery Global. Papery. Claypot King. Five different fields. Branding, AI transformation, sourcing, print, food and beverage.</p><p>They look different. They are not. Each one started from the same place: <em>why does this have to be mediocre?</em></p><p>The branding category had too many agencies producing safe, forgettable work. The print industry was racing to the bottom on price. The F&amp;B space in Bangkok was full of concepts that looked good for six months, then disappeared.</p><p>In every case, the bet was the same. Do it properly, hold the standard, charge accordingly. Find the customers who understand what that\'s worth.</p><hr><h2>What twenty years bought</h2><p>Not certainty. I am wrong often, and more often than I used to admit.</p><p>What it bought is pattern recognition. The ability to see, early, whether a business has a real reason to exist — or whether it is solving a problem no one has.</p><p>And one rule, repeated enough times to be reliable:</p><blockquote>Premium is not a price point. It is a decision. Made early, held consistently, defended when it is expensive to do so.</blockquote><p>The expensive moments are the ones that matter. When a client asks you to cut a corner. When a supplier offers a cheaper option. When the team is tired and <em>good enough</em> is available.</p><p>The companies that last are the ones that said no at the expensive moment.</p><hr><h2>The next twenty years</h2><p>I have no intention of slowing down.</p><p>Bangkok and Hong Kong are both accelerating. AI is compressing the timeline on everything. The gap between a good idea and a working company is narrower than it has ever been.</p><p>The rule still applies. Narrow the gap carefully.</p>'
+    },
+    '369620ab-c1bd-81d5-883f-fef7e0e826b0': {
+      title: 'Claypot and Code',
+      tag: 'F&B', date: '18 January 2026',
+      html: '<p>People find it strange that I run a food brand and an AI company at the same time.</p><p>They are not as different as they look.</p><hr><h2>What Claypot King is really about</h2><p>Claypot cooking is old. The technique predates most cooking equipment in use today. Low heat, long time, sealed vessel — the chemistry produces something a wok cannot.</p><p>Claypot King is not about nostalgia. It is about taking a technique that is genuinely better for certain dishes and running it at scale, across multiple locations, without losing what makes it worth eating in the first place.</p><p>That is a hard problem. Most food businesses solve it by simplifying the food. We chose not to.</p><hr><h2>What Avery AI is really about</h2><p>AI is new. The rate of change in the space makes most predictions obsolete within a year.</p><p>Avery AI is not about chasing every new model or capability. It is about applying AI to real business problems — in branding, in operations, in the work clients already do — with enough rigour that the output is actually useful.</p><p>That is also a hard problem. Most AI implementations solve it by simplifying the expectations. We chose not to.</p><hr><h2>The same problem, twice</h2><blockquote>How do you preserve what matters when you are moving fast?</blockquote><p>Claypot King: the answer is the pot itself. Some things earn their pace. We built the operation around the constraint, not against it.</p><p>Avery AI: the answer is the brief. Speed without direction produces volume, not value. We built the practice around the question, not the output.</p><p>The claypot is slower than a wok. That is the point.</p><p>The best AI work is slower than it looks. That is also the point.</p><p>I didn\'t plan to build a food company and an AI company in the same decade. But I\'m glad I did. They keep teaching me the same lesson from different angles.</p>'
+    },
+    '369620ab-c1bd-813f-991a-fb75a94358ba': {
+      title: 'Bangkok and Hong Kong Are Not the Same City',
+      tag: 'Operating', date: '5 December 2025',
+      html: '<p>Hong Kong asks: where are the numbers?</p><p>Bangkok asks: where is the relationship?</p><p>Both are right. Both are fast. They are fast in different directions.</p><hr><h2>How they differ</h2><p>In Hong Kong, a meeting has an agenda. It starts on time. The first fifteen minutes are information exchange. Trust is built through proof — through a track record that can be checked, a deck that holds up to scrutiny, a structure that survives due diligence.</p><p>In Bangkok, a meeting has a context. The first fifteen minutes are reading the room. Trust is built through presence — through showing up consistently, through knowing the right people, through demonstrating that you are in this for the relationship, not just the transaction.</p><p>Neither is superior. Both have produced things I am proud of. Both have produced mistakes I learned from slowly.</p><hr><h2>The mistake I keep making</h2><p>I\'ve applied the wrong mode in the wrong city more times than I\'d like to admit.</p><p>In Hong Kong, I\'ve been too warm too early — led with relationship before establishing credibility, and watched the room go quiet. They were waiting for proof I hadn\'t provided yet.</p><p>In Bangkok, I\'ve been too clinical too fast — led with data before establishing trust, and watched the room go polite. They were waiting for connection I hadn\'t offered yet.</p><p>The room goes quiet in the same way both times. That is how you know.</p><hr><h2>The skill</h2><blockquote>The skill is not choosing between them. It is reading which one the day needs.</blockquote><p>This takes time. It still takes me a beat — a moment at the start of any meeting, in either city, to ask: <em>what mode is this?</em></p><p>But the question is now automatic. That is probably what twenty years of building in two cities is worth.</p><p>I spend roughly half my time in each city. Bangkok is home. Hong Kong is where a lot of the business happens. I am not sure I could do one without the other — each city has made me better at the other\'s game.</p>'
+    }
+  };
+
+  function renderStatic(id){
+    var p = STATIC_POSTS[id];
+    if(!p) return false;
+    document.title = p.title + ' — Veerachit';
+    document.getElementById('postContainer').innerHTML =
+      '<div class="post-meta"><span>'+p.date+'</span><span class="p-tag-chip">'+p.tag+'</span></div>'
+      +'<h1 class="post-title">'+p.title+'</h1>'
+      +'<div class="post-content">'+p.html+'</div>';
+    return true;
+  }
+
+  /* ---- fetch and render post --------------------------------- */
+  var params = new URLSearchParams(window.location.search);
+  var pageId  = params.get('id');
+  var container = document.getElementById('postContainer');
+
+  if(!pageId){
+    container.innerHTML = '<p style="color:var(--text-faint);font-family:\'Space Mono\',monospace;font-size:.8rem">No post found. <a href="index.html#thoughts" style="color:var(--violet-light)">Back to thoughts →</a></p>';
+  } else {
+    /* Fetch page properties + blocks in parallel */
+    Promise.all([
+      fetch(NOTION_PROXY + '/notion/pages/' + pageId).then(function(r){ return r.json(); }),
+      fetch(NOTION_PROXY + '/notion/blocks/' + pageId + '/children?page_size=100').then(function(r){ return r.json(); })
+    ])
+    .then(function(results){
+      var page   = results[0];
+      var blocks = results[1];
+
+      if(page.object === 'error'){
+        container.innerHTML = '<p style="color:var(--text-faint)">Post not found. <a href="index.html#thoughts" style="color:var(--violet-light)">Back to thoughts →</a></p>';
+        return;
+      }
+
+      var props   = page.properties;
+      var title   = (props.Title.title[0] && props.Title.title[0].plain_text) || 'Untitled';
+      var tag     = (props.Tags && props.Tags.multi_select[0] && props.Tags.multi_select[0].name) || '';
+      var date    = (props.Date && props.Date.date && props.Date.date.start)
+                      ? new Date(props.Date.date.start).toLocaleDateString('en-GB',{year:'numeric',month:'long',day:'numeric'})
+                      : '';
+
+      /* update page title for SEO */
+      document.title = title + ' — Veerachit';
+
+      container.innerHTML =
+        '<div class="post-meta">'
+          +(date ? '<span>'+date+'</span>' : '')
+          +(tag  ? '<span class="p-tag-chip">'+tag+'</span>' : '')
+        +'</div>'
+        +'<h1 class="post-title">'+title+'</h1>'
+        +'<div class="post-content">'
+          +(blocks.results ? renderBlocks(blocks.results) : '')
+        +'</div>';
+    })
+    .catch(function(){
+      /* Worker not set up yet — fall back to static content */
+      if(!renderStatic(pageId)){
+        container.innerHTML = '<p style="color:var(--text-faint);font-family:\'Space Mono\',monospace;font-size:.8rem">Couldn\'t load post. <a href="index.html#thoughts" style="color:var(--violet-light)">Back to thoughts →</a></p>';
+      }
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
