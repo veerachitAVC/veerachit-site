@@ -208,7 +208,7 @@
 .light .faq-item.open{box-shadow:0 10px 32px rgba(22,19,32,.09)}
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:auto;-webkit-text-size-adjust:100%}
 body{
   font-family:'Inter',-apple-system,system-ui,sans-serif;
   background:var(--bg);
@@ -295,6 +295,16 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   transition:opacity .8s var(--ease),transform .8s var(--ease);
 }
 [data-stagger].in>*{opacity:1;transform:none}
+
+/* ---- GSAP-owned elements: CSS hides nothing, GSAP controls all  */
+/* Higher specificity (two attributes) overrides [data-reveal]     */
+[data-reveal][data-gsap],
+[data-stagger][data-gsap]{
+  opacity:1;transform:none;transition:none!important;
+}
+[data-stagger][data-gsap]>*{
+  opacity:1;transform:none;transition:none!important;
+}
 
 /* ---- sibling stagger delays ----------------------------------- */
 .ventures-list [data-reveal]:nth-child(2){transition-delay:80ms}
@@ -668,7 +678,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
    ============================================================ */
 .ventures-list{margin-top:.5rem;border-top:1px solid var(--line-2)}
 .venture{
-  display:grid;grid-template-columns:4rem 1fr 13rem 1.7fr 3rem;
+  display:grid;grid-template-columns:4rem 1fr 1.7fr 3rem;
   gap:1.8rem;align-items:center;
   padding:2rem 1rem;border-bottom:1px solid var(--line-2);
   position:relative;overflow:hidden;border-radius:14px;
@@ -1188,20 +1198,20 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 <!-- ===================== 01 — ABOUT ===================== -->
 <section class="section light" id="about">
   <div class="wrap">
-    <div class="sec-head" data-reveal>
+    <div class="sec-head" data-reveal data-gsap>
       <span class="tag">01 — About</span>
       <span class="rule"></span>
       <span class="note">Who</span>
     </div>
 
-    <p class="belief" data-reveal>
+    <p class="belief" data-reveal data-gsap>
       I believe a business is won in
       <span class="grad-text">what you choose to leave out</span> —
       <span class="dim">not just what you put in.</span>
     </p>
 
     <div class="about-grid">
-      <div class="about-bio" data-reveal>
+      <div class="about-bio" data-reveal data-gsap>
         <p>
           I'm Veerachit — an entrepreneur and CEO based in Bangkok.
           For twenty years — since 2006 — I've built companies across five fields:
@@ -1216,7 +1226,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
           <small style="opacity:.45;font-size:.8em"> · วีรชิต จารุธนเดช</small>
         </p>
       </div>
-      <div class="about-right" data-reveal>
+      <div class="about-right" data-reveal data-gsap>
         <div class="portrait-wrap">
           <img src="VJPortrait.png" alt="Veerachit" class="portrait-img" width="400" height="500" loading="eager">
         </div>
@@ -1231,7 +1241,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
       </div>
     </div>
 
-    <div class="stat-strip" data-stagger>
+    <div class="stat-strip" data-stagger data-gsap>
       <div class="stat"><div class="num" data-count="20" data-suffix="+">0</div><div class="lab">Years building</div></div>
       <div class="stat"><div class="num" data-count="5">0</div><div class="lab">Ventures</div></div>
       <div class="stat"><div class="num" style="font-size:clamp(1.2rem,2vw,1.9rem)">BKK · HKG</div><div class="lab">Cities</div></div>
@@ -1261,7 +1271,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
           <h3>Branding &amp; Identity</h3>
           <span class="v-tag">Avery &amp; Co</span>
         </span>
-        <span class="v-thumb"><span style="background:linear-gradient(135deg,#2a2440,#12101d)"></span></span>
         <span class="v-desc">Brand strategy, identity, and packaging for companies built to last.</span>
         <span class="v-arrow" aria-hidden="true">↗</span>
       </a>
@@ -1272,7 +1281,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
           <h3>AI Transformation</h3>
           <span class="v-tag">Avery AI</span>
         </span>
-        <span class="v-thumb"><span style="background:linear-gradient(135deg,#1c1a40,#0d0c1f)"></span></span>
         <span class="v-desc">AI transformation consultancy for businesses moving from exploration to operation.</span>
         <span class="v-arrow" aria-hidden="true">↗</span>
       </a>
@@ -1283,7 +1291,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
           <h3>Asia-Focused Sourcing</h3>
           <span class="v-tag">Avery Global</span>
         </span>
-        <span class="v-thumb"><span style="background:linear-gradient(135deg,#1a2840,#0c1117)"></span></span>
         <span class="v-desc">Asia-focused global sourcing for brands that need reliable quality at scale.</span>
         <span class="v-arrow" aria-hidden="true">↗</span>
       </a>
@@ -1294,7 +1301,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
           <h3>Print &amp; Production</h3>
           <span class="v-tag">Papery</span>
         </span>
-        <span class="v-thumb"><span style="background:linear-gradient(135deg,#2b3540,#121417)"></span></span>
         <span class="v-desc">Print production house: packaging, collateral, and finishing — end to end, nothing lost in translation.</span>
         <span class="v-arrow" aria-hidden="true">↗</span>
       </a>
@@ -1305,7 +1311,6 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
           <h3>Food &amp; Beverage</h3>
           <span class="v-tag">Claypot King</span>
         </span>
-        <span class="v-thumb"><span style="background:linear-gradient(135deg,#5a2a18,#1a1410)"></span></span>
         <span class="v-desc">Premium claypot kitchen group in Bangkok. Honest food, genuine quality, run with operational rigor.</span>
         <span class="v-arrow" aria-hidden="true">↗</span>
       </a>
@@ -1693,10 +1698,37 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   </div>
 </footer>
 
+<!-- Lenis smooth scroll — https://lenis.darkroom.engineering -->
+<script src="https://cdn.jsdelivr.net/npm/lenis@1/dist/lenis.min.js"></script>
+<!-- GSAP + ScrollTrigger — https://gsap.com -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+
 <script>
 (function(){
   "use strict";
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Lenis inertial smooth scroll ----------------------------- */
+  /* lenis is declared here so GSAP block can access it             */
+  var lenis = null;
+  var lenisGsapConnected = false;
+  if(!reduce && typeof Lenis !== 'undefined'){
+    lenis = new Lenis({
+      duration: 1.2,
+      easing: function(t){ return Math.min(1, 1.001 - Math.pow(2, -10 * t)); },
+      smoothWheel: true,
+      smoothTouch: false,   /* leave native iOS momentum alone      */
+      wheelMultiplier: 1,
+      touchMultiplier: 1,
+    });
+    /* Standalone RAF — stops once GSAP ticker takes over           */
+    function lenisRaf(time){
+      if(!lenisGsapConnected) lenis.raf(time);
+      requestAnimationFrame(lenisRaf);
+    }
+    requestAnimationFrame(lenisRaf);
+  }
 
   /* ---- live nav state + scroll progress ---------------------- */
   var nav = document.getElementById('nav');
@@ -1729,7 +1761,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   });
 
   /* ---- scroll reveal ----------------------------------------- */
-  var items = document.querySelectorAll('[data-reveal],[data-stagger]');
+  /* data-gsap elements are animated by GSAP instead               */
+  var items = document.querySelectorAll('[data-reveal]:not([data-gsap]),[data-stagger]:not([data-gsap])');
   if('IntersectionObserver' in window && !reduce){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
@@ -1999,6 +2032,151 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
         '<p class="mono" style="color:var(--text-faint);padding:2rem 1rem">Posts coming soon.</p>';
     });
   }
+
+  /* ================================================================
+     GSAP + ScrollTrigger — About section enhanced animations
+     Gated behind reduce check + library availability check
+  ================================================================ */
+  if(!reduce && typeof gsap !== 'undefined' && typeof ScrollTrigger !== 'undefined'){
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    /* Connect Lenis to GSAP ticker (replaces standalone lenisRaf)  */
+    if(lenis){
+      lenisGsapConnected = true;
+      lenis.on('scroll', ScrollTrigger.update);
+      gsap.ticker.add(function(time){ lenis.raf(time * 1000); });
+      gsap.ticker.lagSmoothing(0);
+    }
+
+    /* Fallback: if GSAP init failed, IO has already skipped data-gsap
+       elements — make them visible so the page doesn't break        */
+    function gsapFallback(){
+      document.querySelectorAll('[data-gsap]').forEach(function(el){
+        el.classList.add('in');
+      });
+    }
+
+    try {
+
+      /* -- 1. Section label ----------------------------------------- */
+      gsap.from('#about .sec-head', {
+        scrollTrigger: { trigger: '#about .sec-head', start: 'top 90%' },
+        y: 40, opacity: 0, duration: 0.9, ease: 'power3.out'
+      });
+
+      /* -- 2. Belief quote ------------------------------------------ */
+      gsap.from('#about .belief', {
+        scrollTrigger: { trigger: '#about .belief', start: 'top 88%' },
+        y: 50, opacity: 0, duration: 1.1, ease: 'power3.out', delay: 0.08
+      });
+
+      /* -- 3. Bio paragraphs — staggered rise ----------------------- */
+      gsap.from('#about .about-bio p', {
+        scrollTrigger: { trigger: '#about .about-bio', start: 'top 82%' },
+        y: 30, opacity: 0, duration: 1.0, ease: 'power3.out', stagger: 0.2
+      });
+
+      /* -- 4. Portrait — blur-to-focus scale reveal ----------------- */
+      /* .about-right container: make visible immediately, animate children */
+      gsap.set('#about .about-right', { opacity: 1, y: 0 });
+
+      gsap.fromTo('#about .portrait-wrap',
+        { scale: 0.78, opacity: 0, filter: 'blur(12px)' },
+        { scrollTrigger: { trigger: '#about .about-right', start: 'top 84%' },
+          scale: 1, opacity: 1, filter: 'blur(0px)',
+          duration: 1.3, ease: 'power3.out', clearProps: 'filter' }
+      );
+
+      /* -- 5. Now card ---------------------------------------------- */
+      gsap.from('#about .now-card', {
+        scrollTrigger: { trigger: '#about .about-right', start: 'top 84%' },
+        y: 28, opacity: 0, duration: 1.0, ease: 'power3.out', delay: 0.22
+      });
+
+      /* -- 6. Stats — blur-to-focus stagger ------------------------- */
+      gsap.fromTo('#about .stat',
+        { y: 28, opacity: 0, filter: 'blur(8px)' },
+        { scrollTrigger: { trigger: '#about .stat-strip', start: 'top 88%' },
+          y: 0, opacity: 1, filter: 'blur(0px)',
+          duration: 0.85, ease: 'power3.out', stagger: 0.13, clearProps: 'filter' }
+      );
+
+      /* ============================================================
+         07 — PHOTOGRAPHY: clip-path wipe-up + velocity-reactive skew
+         The signature luxury effect — grid responds to scroll speed
+      ============================================================ */
+      var photoGrid = document.getElementById('photoGrid');
+      if(photoGrid){
+        var plates = Array.from(photoGrid.querySelectorAll('.plate'));
+
+        if(plates.length){
+          /* Override the CSS [data-reveal] hide so opacity/transform
+             are visible — clip-path becomes the sole reveal mechanic */
+          gsap.set(plates, { opacity: 1, y: 0 });
+
+          /* Wipe-up: each card reveals from its bottom edge upward  */
+          gsap.fromTo(plates,
+            { clipPath: 'inset(0px 0px 100% 0px round 14px)' },
+            {
+              clipPath: 'inset(0px 0px 0% 0px round 14px)',
+              scrollTrigger: { trigger: photoGrid, start: 'top 88%' },
+              duration: 1.15,
+              ease: 'power3.out',
+              stagger: { amount: 0.75, from: 'start' },
+              clearProps: 'clipPath'
+            }
+          );
+        }
+
+      }
+
+      /* ============================================================
+         09 — COLOR SHIFT: subtle hue drift tied to scroll progress
+         --grad and --violet-light shift ~15° across the full page.
+         Invisible moment-to-moment; atmospheric top-to-bottom.
+      ============================================================ */
+      (function(){
+        var root = document.documentElement;
+        function lerp(a,b,t){ return a + (b-a)*t; }
+        function hsl(h,s,l){ return 'hsl('+h.toFixed(1)+','+s.toFixed(1)+'%,'+l.toFixed(1)+'%)'; }
+
+        /* Start (top) → End (bottom) in HSL                        */
+        /* Stop 1 — soft violet #A989FF                              */
+        var s1 = [267, 92, 76], e1 = [252, 88, 74];
+        /* Stop 2 — violet #8B5CF6                                   */
+        var s2 = [263, 89, 64], e2 = [248, 85, 63];
+        /* Stop 3 — blue #4F7DFF                                     */
+        var s3 = [225,100, 65], e3 = [214, 96, 63];
+
+        ScrollTrigger.create({
+          trigger: document.body,
+          start: 'top top',
+          end: 'bottom bottom',
+          scrub: true,
+          onUpdate: function(self){
+            var p = self.progress;
+            var c1 = hsl(lerp(s1[0],e1[0],p), lerp(s1[1],e1[1],p), lerp(s1[2],e1[2],p));
+            var c2 = hsl(lerp(s2[0],e2[0],p), lerp(s2[1],e2[1],p), lerp(s2[2],e2[2],p));
+            var c3 = hsl(lerp(s3[0],e3[0],p), lerp(s3[1],e3[1],p), lerp(s3[2],e3[2],p));
+            root.style.setProperty('--grad',
+              'linear-gradient(108deg,'+c1+' 0%,'+c2+' 38%,'+c3+' 100%)'
+            );
+            root.style.setProperty('--violet-light', c1);
+          }
+        });
+      })();
+
+    } catch(err){
+      gsapFallback();
+    }
+
+  } else {
+    /* GSAP not available (CDN blocked/offline) or reduced motion:
+       fall back to instant reveal so page never stays blank          */
+    document.querySelectorAll('[data-gsap]').forEach(function(el){ el.classList.add('in'); });
+  }
+
 })();
 </script>
 </body>
