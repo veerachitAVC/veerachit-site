@@ -156,6 +156,20 @@
   ]
 }
 </script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Veerachit Toolkit — Free Resources",
+  "description": "Free systems and tools from Veerachit — templates, presets, prompts, and playbooks.",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Manager's Notion OS",      "description": "Dashboards, weekly reviews, and the cadence I use to run five companies. Built in Notion, ready to duplicate." },
+    { "@type": "ListItem", "position": 2, "name": "Bangkok light presets",    "description": "Six Lightroom presets for natural and low light — the way I grade my own frames." },
+    { "@type": "ListItem", "position": 3, "name": "AI prompt library",        "description": "The prompts behind Avery AI's writing, strategy, and research work. Adapt them to your own." },
+    { "@type": "ListItem", "position": 4, "name": "Operating playbooks",      "description": "Plain-text playbooks for hiring, briefs, and brand decisions. Markdown — no fluff." }
+  ]
+}
+</script>
 
 <style>
 /* ============================================================
@@ -1062,6 +1076,138 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
 }
 
 /* ============================================================
+   TOOLKIT — §05
+   ============================================================ */
+.tk-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-top:2.8rem}
+.tk-card{
+  position:relative;overflow:hidden;
+  border:1px solid var(--line-2);border-radius:14px;
+  padding:1.8rem;
+  display:flex;flex-direction:column;gap:.85rem;
+  background:var(--surface);
+  transition:background .45s var(--ease),transform .3s var(--ease);
+}
+.tk-card::before{
+  content:"";position:absolute;inset:0;
+  background:var(--grad-soft);opacity:0;
+  transition:opacity .45s var(--ease);z-index:0;
+}
+.tk-card>*{position:relative;z-index:1}
+.tk-card:hover{transform:translateY(-2px)}
+.tk-card:hover::before{opacity:1}
+.tk-icon{width:36px;height:36px;color:var(--violet-light);display:flex;align-items:center}
+.tk-tag{
+  font-family:'Space Mono',monospace;font-size:.62rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--violet-light);
+}
+.tk-card h3{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:1.12rem;letter-spacing:-.015em;line-height:1.2;
+  color:var(--text);margin:0;
+}
+.tk-card>p{font-size:.93rem;color:var(--text-dim);line-height:1.6;flex:1;margin:0}
+.tk-foot{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:1rem;margin-top:.4rem;padding-top:1rem;
+  border-top:1px solid var(--line);
+}
+.tk-hint{
+  font-family:'Space Mono',monospace;font-size:.6rem;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--text-faint);
+}
+.tk-dl{
+  font-family:'Space Grotesk',sans-serif;font-size:.82rem;font-weight:500;
+  background:var(--grad);color:#fff;
+  border:0;border-radius:8px;padding:.45rem 1.05rem;
+  cursor:pointer;flex-shrink:0;
+  transition:opacity .3s var(--ease),transform .3s var(--ease);
+}
+.tk-dl:hover{opacity:.85;transform:translateY(-1px)}
+.tk-trust{text-align:center;margin-top:2rem;color:var(--text-faint)}
+
+/* ---- Toolkit modal ------------------------------------------ */
+#tkModal{
+  position:fixed;inset:0;z-index:500;
+  display:flex;align-items:center;justify-content:center;padding:1.5rem;
+}
+#tkModal[hidden]{display:none}
+.tk-backdrop{
+  position:absolute;inset:0;
+  background:rgba(8,7,12,.75);
+  backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);
+  cursor:pointer;
+}
+.tk-modal-box{
+  position:relative;z-index:1;
+  background:var(--surface);
+  border:1px solid var(--line-2);border-radius:20px;
+  padding:2.2rem 2.4rem 2rem;
+  width:100%;max-width:440px;
+  box-shadow:0 24px 80px rgba(0,0,0,.5);
+}
+.tk-close{
+  position:absolute;top:1.1rem;right:1.2rem;
+  width:32px;height:32px;border-radius:50%;
+  background:var(--surface-2);border:1px solid var(--line-2);
+  color:var(--text-dim);font-size:1.1rem;
+  display:grid;place-items:center;cursor:pointer;
+  transition:background .3s var(--ease),color .3s var(--ease);
+}
+.tk-close:hover{background:var(--line-2);color:var(--text)}
+.tk-modal-icon{margin-bottom:.8rem;color:var(--violet-light)}
+.tk-modal-h{
+  font-family:'Space Grotesk',sans-serif;font-weight:600;
+  font-size:1.1rem;color:var(--text);
+  padding-right:2rem;margin-bottom:.35rem;line-height:1.3;
+}
+.tk-modal-sub{font-size:.9rem;color:var(--text-dim);margin-bottom:1.6rem}
+#tkForm{display:flex;flex-direction:column;gap:.8rem}
+#tkForm input[type="email"],
+#tkForm input[type="text"]{
+  width:100%;padding:.72rem 1rem;
+  background:var(--surface-2);
+  border:1px solid var(--line-2);border-radius:10px;
+  color:var(--text);font-family:'Inter',sans-serif;font-size:.92rem;
+  outline:none;transition:border-color .3s var(--ease);
+}
+#tkForm input:focus{border-color:var(--violet-light)}
+#tkForm input::placeholder{color:var(--text-faint)}
+.tk-consent{display:flex;align-items:flex-start;gap:.7rem;cursor:pointer}
+.tk-consent input[type="checkbox"]{
+  margin-top:.18rem;width:16px;height:16px;flex-shrink:0;
+  accent-color:var(--violet);cursor:pointer;
+}
+.tk-consent span{font-size:.82rem;color:var(--text-dim);line-height:1.5}
+#tkSubmit{
+  background:var(--grad);color:#fff;
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:.92rem;letter-spacing:.01em;
+  border:0;border-radius:10px;padding:.8rem;
+  cursor:pointer;margin-top:.4rem;
+  transition:opacity .3s var(--ease);
+}
+#tkSubmit:disabled{opacity:.38;cursor:not-allowed}
+#tkSubmit:not(:disabled):hover{opacity:.86}
+#tkSuccess{
+  padding:1.6rem 0 .4rem;
+  font-size:.97rem;color:var(--text);
+  font-family:'Space Grotesk',sans-serif;line-height:1.6;
+}
+
+/* ---- Reading list (inside #thoughts) ----------------------- */
+.reading-rule{border:none;border-top:1px solid var(--line);margin:3rem 0 2.4rem}
+.reading-h{
+  font-family:'Space Grotesk',sans-serif;font-weight:500;
+  font-size:clamp(1.3rem,2vw,1.7rem);letter-spacing:-.02em;color:var(--text);
+}
+.reading-lede{color:var(--text-dim);margin-top:.5rem;margin-bottom:2rem;font-size:.97rem}
+.book-list{list-style:none;display:flex;flex-direction:column;gap:1.4rem}
+.book-title{font-weight:500;color:var(--text)}
+.book-author{color:var(--text-faint);font-size:.95rem}
+.book-note{color:var(--text-dim);font-size:.9rem;margin-top:.3rem;max-width:52ch}
+
+/* ============================================================
    RESPONSIVE
    ============================================================ */
 @media(max-width:760px){
@@ -1091,6 +1237,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   .thought:hover{padding-left:1rem;padding-right:1rem}
   .footer-top{flex-direction:column}
   .hero-foot{gap:1.2rem}
+  .tk-grid{grid-template-columns:1fr}
+  .tk-modal-box{padding:1.8rem 1.4rem 1.6rem}
 }
 @media(prefers-reduced-motion:reduce){
   *{animation:none!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
@@ -1113,6 +1261,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
     <a href="#ventures">Ventures</a>
     <a href="#photography">Photography</a>
     <a href="#thoughts">Thoughts</a>
+    <a href="#toolkit">Toolkit</a>
     <a href="#faq">FAQ</a>
   </div>
   <div class="nav-right">
@@ -1127,8 +1276,9 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   <a href="#ventures"><span>02</span>Ventures</a>
   <a href="#photography"><span>03</span>Photography</a>
   <a href="#thoughts"><span>04</span>Thoughts</a>
-  <a href="#faq"><span>05</span>FAQ</a>
-  <a href="#contact"><span>06</span>Contact</a>
+  <a href="#toolkit"><span>05</span>Toolkit</a>
+  <a href="#faq"><span>06</span>FAQ</a>
+  <a href="#contact"><span>07</span>Contact</a>
   <p class="mobile-foot mono">Bangkok, Thailand · UTC+7</p>
 </div>
 
@@ -1502,6 +1652,108 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
         <span class="t-ar" aria-hidden="true">↗</span>
       </a>
     </div>
+
+    <!-- ---- Reading list ------------------------------------------- -->
+    <div id="reading" data-reveal>
+      <hr class="reading-rule" aria-hidden="true">
+      <h3 class="reading-h">Reading</h3>
+      <p class="reading-lede">A few books behind how I work.</p>
+      <!-- TODO — placeholder books. VJ to replace with the real reading list. -->
+      <ul class="book-list">
+        <li class="book">
+          <div><span class="book-title">Ogilvy on Advertising</span><span class="book-author"> — David Ogilvy</span></div>
+          <p class="book-note">Why craft and commercial sense were never opposites.</p>
+        </li>
+        <li class="book">
+          <div><span class="book-title">The Laws of Simplicity</span><span class="book-author"> — John Maeda</span></div>
+        </li>
+        <li class="book">
+          <div><span class="book-title">Co-Intelligence</span><span class="book-author"> — Ethan Mollick</span></div>
+          <p class="book-note">The clearest field guide to working alongside AI.</p>
+        </li>
+        <li class="book">
+          <div><span class="book-title">Rework</span><span class="book-author"> — Jason Fried &amp; David Heinemeier Hansson</span></div>
+          <p class="book-note">The case for doing less, and doing it better.</p>
+        </li>
+        <li class="book">
+          <div><span class="book-title">The Photographer's Eye</span><span class="book-author"> — Michael Freeman</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== TOOLKIT ===================== -->
+<section class="section light" id="toolkit">
+  <div class="wrap">
+    <div class="sec-head" data-reveal>
+      <span class="tag">Free resources</span>
+      <span class="rule"></span>
+      <span class="note">Tools</span>
+    </div>
+
+    <h2 class="h2" data-reveal>Toolkit</h2>
+    <p class="lede" data-reveal style="margin-top:1.4rem">
+      The systems and presets I use to run the work. Free — take what's useful.
+    </p>
+
+    <div class="tk-grid">
+
+      <div class="tk-card" data-reveal>
+        <div class="tk-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+        </div>
+        <span class="tk-tag">Operating</span>
+        <h3>Manager's Notion OS</h3>
+        <p>Dashboards, weekly reviews, and the cadence I use to run five companies. Built in Notion, ready to duplicate.</p>
+        <div class="tk-foot">
+          <span class="tk-hint">Notion template</span>
+          <button class="tk-dl" data-resource="manager-notion-os" data-resource-title="Manager's Notion OS">Download</button>
+        </div>
+      </div>
+
+      <div class="tk-card" data-reveal>
+        <div class="tk-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="4"/><line x1="12" y1="20" x2="12" y2="22"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="2" y1="12" x2="4" y2="12"/><line x1="20" y1="12" x2="22" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </div>
+        <span class="tk-tag">Photography</span>
+        <h3>Bangkok light presets</h3>
+        <p>Six Lightroom presets for natural and low light — the way I grade my own frames.</p>
+        <div class="tk-foot">
+          <span class="tk-hint">Lightroom · .xmp</span>
+          <button class="tk-dl" data-resource="bangkok-light-presets" data-resource-title="Bangkok light presets">Download</button>
+        </div>
+      </div>
+
+      <div class="tk-card" data-reveal>
+        <div class="tk-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+        </div>
+        <span class="tk-tag">AI</span>
+        <h3>AI prompt library</h3>
+        <p>The prompts behind Avery AI's writing, strategy, and research work. Adapt them to your own.</p>
+        <div class="tk-foot">
+          <span class="tk-hint">Notion / Markdown</span>
+          <button class="tk-dl" data-resource="ai-prompt-library" data-resource-title="AI prompt library">Download</button>
+        </div>
+      </div>
+
+      <div class="tk-card" data-reveal>
+        <div class="tk-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <span class="tk-tag">Frameworks</span>
+        <h3>Operating playbooks</h3>
+        <p>Plain-text playbooks for hiring, briefs, and brand decisions. Markdown — no fluff.</p>
+        <div class="tk-foot">
+          <span class="tk-hint">Markdown · .md</span>
+          <button class="tk-dl" data-resource="operating-playbooks" data-resource-title="Operating playbooks">Download</button>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="tk-trust mono">One email. The file, plus the occasional note. Unsubscribe anytime.</p>
   </div>
 </section>
 
@@ -1779,7 +2031,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   }
 
   /* ---- active section highlight ------------------------------ */
-  var ids = ['about','ventures','photography','thoughts','faq','contact'];
+  var ids = ['about','ventures','photography','thoughts','toolkit','faq','contact'];
   var linkFor = {};
   document.querySelectorAll('.nav-links a').forEach(function(a){
     linkFor[a.getAttribute('href').slice(1)] = a;
@@ -2173,7 +2425,137 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
     document.querySelectorAll('[data-gsap]').forEach(function(el){ el.classList.add('in'); });
   }
 
+  /* ================================================================
+     TOOLKIT — email-gate modal
+  ================================================================ */
+  (function(){
+    var modal     = document.getElementById('tkModal');
+    if(!modal) return;
+    var form      = document.getElementById('tkForm');
+    var emailIn   = document.getElementById('tkEmail');
+    var nameIn    = document.getElementById('tkName');
+    var consentIn = document.getElementById('tkConsent');
+    var submitBtn = document.getElementById('tkSubmit');
+    var titleEl   = document.getElementById('tkModalTitle');
+    var successEl = document.getElementById('tkSuccess');
+    var closeBtn  = modal.querySelector('.tk-close');
+    var backdrop  = modal.querySelector('.tk-backdrop');
+    var _trigger  = null;
+    var _resource = null;
+
+    function getFocusables(){
+      return Array.from(modal.querySelectorAll(
+        'button:not([disabled]),input,[tabindex]:not([tabindex="-1"])'
+      )).filter(function(el){ return !el.hidden && el.offsetParent !== null; });
+    }
+
+    function openToolkitModal(resourceId, resourceTitle, triggerEl){
+      _trigger  = triggerEl;
+      _resource = { id: resourceId, title: resourceTitle };
+      titleEl.textContent = resourceTitle;
+      modal.hidden = false;
+      document.body.style.overflow = 'hidden';
+      emailIn.focus();
+    }
+
+    function closeToolkitModal(){
+      modal.hidden = true;
+      document.body.style.overflow = '';
+      form.hidden = false;
+      successEl.hidden = true;
+      form.reset();
+      submitBtn.disabled = true;
+      if(_trigger) _trigger.focus();
+      _trigger = null;
+      _resource = null;
+    }
+
+    /* Focus trap */
+    modal.addEventListener('keydown', function(e){
+      if(e.key !== 'Tab') return;
+      var els = getFocusables();
+      if(!els.length) return;
+      var first = els[0], last = els[els.length - 1];
+      if(e.shiftKey){
+        if(document.activeElement === first){ e.preventDefault(); last.focus(); }
+      } else {
+        if(document.activeElement === last){ e.preventDefault(); first.focus(); }
+      }
+    });
+
+    /* Open on Download click */
+    document.querySelectorAll('.tk-dl').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        openToolkitModal(
+          btn.getAttribute('data-resource'),
+          btn.getAttribute('data-resource-title'),
+          btn
+        );
+      });
+    });
+
+    /* Close triggers */
+    closeBtn.addEventListener('click', closeToolkitModal);
+    backdrop.addEventListener('click', closeToolkitModal);
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && !modal.hidden) closeToolkitModal();
+    });
+
+    /* Enable submit only when email valid + consent checked */
+    function checkValidity(){
+      var e = emailIn.value;
+      submitBtn.disabled = !(e.indexOf('@') > 0 && e.indexOf('.') > 0 && consentIn.checked);
+    }
+    emailIn.addEventListener('input', checkValidity);
+    consentIn.addEventListener('change', checkValidity);
+
+    /* Form submit */
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      handleToolkitDownload({
+        resource: _resource ? _resource.id    : '',
+        title:    _resource ? _resource.title : '',
+        email:    emailIn.value,
+        name:     nameIn.value,
+        consent:  consentIn.checked
+      });
+    });
+
+    /* TODO — EMAIL BACKEND NOT WIRED. See Site-Additions-Brief.md §A7.
+       This function is the single integration point. To go live, POST
+       { resource, email, name, consent } to the chosen email service here. */
+    function handleToolkitDownload(payload){
+      console.log('[Toolkit] download requested:', payload);
+      form.hidden = true;
+      successEl.hidden = false;
+      successEl.textContent = 'On its way — check your inbox for "' + payload.title + '".';
+    }
+  })();
+
 })();
 </script>
+
+<!-- ===================== TOOLKIT MODAL ===================== -->
+<div id="tkModal" role="dialog" aria-modal="true" aria-labelledby="tkModalTitle" hidden>
+  <div class="tk-backdrop"></div>
+  <div class="tk-modal-box">
+    <button class="tk-close" aria-label="Close">×</button>
+    <div class="tk-modal-icon" aria-hidden="true">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+    <p id="tkModalTitle" class="tk-modal-h"></p>
+    <p class="tk-modal-sub">One step — where should I send it?</p>
+    <form id="tkForm" novalidate>
+      <input type="email" id="tkEmail" required placeholder="Email address" autocomplete="email">
+      <input type="text" id="tkName" placeholder="First name (optional)" autocomplete="given-name">
+      <label class="tk-consent">
+        <input type="checkbox" id="tkConsent" required>
+        <span>I'd like the file and the occasional note from Veerachit. Unsubscribe anytime.</span>
+      </label>
+      <button type="submit" id="tkSubmit" disabled>Email me the file</button>
+    </form>
+    <div id="tkSuccess" hidden></div>
+  </div>
+</div>
 </body>
 </html>
