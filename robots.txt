@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://veerachit.com/sitemap.xml
