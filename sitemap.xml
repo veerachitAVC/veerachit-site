@@ -2,8 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://veerachit.com/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-22</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
+  <url><loc>https://veerachit.com/thoughts/the-case-for-boring-ai/</loc><lastmod>2026-10-20</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/where-ai-systems-actually-break/</loc><lastmod>2026-10-14</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/label-it-by-hand-first/</loc><lastmod>2026-10-08</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/why-leaders-should-go-back-to-class-on-ai/</loc><lastmod>2026-10-02</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/headcount-is-no-longer-the-unit/</loc><lastmod>2026-08-12</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/taste-is-the-last-moat/</loc><lastmod>2026-07-15</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/i-gave-my-companies-a-memory/</loc><lastmod>2026-06-18</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/the-edit-is-the-work/</loc><lastmod>2026-04-15</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/why-ai-wont-replace-the-brief/</loc><lastmod>2026-03-20</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/twenty-years-one-rule/</loc><lastmod>2026-02-10</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/claypot-and-code/</loc><lastmod>2026-01-18</lastmod></url>
+  <url><loc>https://veerachit.com/thoughts/bangkok-and-hong-kong-are-not-the-same-city/</loc><lastmod>2025-12-05</lastmod></url>
 </urlset>

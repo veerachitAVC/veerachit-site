@@ -76,11 +76,11 @@
         }
       ],
       "worksFor": [
-        { "@type": "Organization", "name": "Avery & Co" },
-        { "@type": "Organization", "name": "Avery AI" },
-        { "@type": "Organization", "name": "Avery Global" },
-        { "@type": "Organization", "name": "Papery", "url": "https://paperyprint.com/" },
-        { "@type": "Organization", "name": "Claypot King", "url": "https://claypotking.com/" }
+        { "@id": "https://veerachit.com/#avery-and-co" },
+        { "@id": "https://veerachit.com/#avery-ai" },
+        { "@id": "https://veerachit.com/#avery-global" },
+        { "@id": "https://veerachit.com/#papery" },
+        { "@id": "https://veerachit.com/#claypot-king" }
       ],
       "knowsAbout": [
         "Business Strategy",
@@ -109,7 +109,48 @@
       "sameAs": [
         "https://instagram.com/veerachit",
         "https://linkedin.com/in/veerachit"
+      ],
+      "subjectOf": [
+        { "@type": "NewsArticle", "url": "https://www.nationthailand.com/life/30235679", "name": "Eating out with peanuts" },
+        { "@type": "NewsArticle", "url": "https://www.komchadluek.net/kom-lifestyle/185106", "name": "เซเลบร่วมชิมหวานระดับตำนาน" },
+        { "@type": "NewsArticle", "url": "https://www.bangkokbiznews.com/lifestyle/591622", "name": "Charlie Brown Cafe (Thailand)" }
       ]
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://veerachit.com/#avery-and-co",
+      "name": "Avery & Co",
+      "url": "https://www.averyandco.co.th/",
+      "founder": { "@id": "https://veerachit.com/#person" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://veerachit.com/#avery-ai",
+      "name": "Avery AI",
+      "url": "https://ai.averyandco.co.th/",
+      "parentOrganization": { "@id": "https://veerachit.com/#avery-and-co" },
+      "founder": { "@id": "https://veerachit.com/#person" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://veerachit.com/#avery-global",
+      "name": "Avery Global",
+      "founder": { "@id": "https://veerachit.com/#person" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://veerachit.com/#papery",
+      "name": "Papery",
+      "alternateName": "PaperyPrint",
+      "url": "https://www.paperyprint.com/",
+      "founder": { "@id": "https://veerachit.com/#person" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://veerachit.com/#claypot-king",
+      "name": "Claypot King",
+      "url": "https://claypotking.com/",
+      "founder": { "@id": "https://veerachit.com/#person" }
     },
     {
       "@type": "WebSite",
@@ -127,8 +168,16 @@
       "name": "วีรชิต จารุธนเดช (Veerachit Jaruthanadech) — Entrepreneur & CEO",
       "mainEntity": { "@id": "https://veerachit.com/#person" },
       "about": { "@id": "https://veerachit.com/#person" },
-      "dateModified": "2026-10-21",
-      "isPartOf": { "@id": "https://veerachit.com/#website" }
+      "dateModified": "2026-10-22",
+      "isPartOf": { "@id": "https://veerachit.com/#website" },
+      "hasPart": [
+        { "@type": "Article", "headline": "The Case for Boring AI", "url": "https://veerachit.com/thoughts/the-case-for-boring-ai/", "datePublished": "2026-10-20", "author": { "@id": "https://veerachit.com/#person" } },
+        { "@type": "Article", "headline": "Where AI Systems Actually Break", "url": "https://veerachit.com/thoughts/where-ai-systems-actually-break/", "datePublished": "2026-10-14", "author": { "@id": "https://veerachit.com/#person" } },
+        { "@type": "Article", "headline": "Label It by Hand First", "url": "https://veerachit.com/thoughts/label-it-by-hand-first/", "datePublished": "2026-10-08", "author": { "@id": "https://veerachit.com/#person" } },
+        { "@type": "Article", "headline": "Why Leaders Should Go Back to Class on AI", "url": "https://veerachit.com/thoughts/why-leaders-should-go-back-to-class-on-ai/", "datePublished": "2026-10-02", "author": { "@id": "https://veerachit.com/#person" } },
+        { "@type": "Article", "headline": "Headcount Is No Longer the Unit", "url": "https://veerachit.com/thoughts/headcount-is-no-longer-the-unit/", "datePublished": "2026-08-12", "author": { "@id": "https://veerachit.com/#person" } },
+        { "@type": "Article", "headline": "Taste Is the Last Moat", "url": "https://veerachit.com/thoughts/taste-is-the-last-moat/", "datePublished": "2026-07-15", "author": { "@id": "https://veerachit.com/#person" } }
+      ]
     },
     {
       "@type": "FAQPage",
@@ -1455,7 +1504,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
     </p>
 
     <div class="ventures-list" style="margin-top:2.8rem">
-      <a class="venture" href="#" data-reveal aria-label="Avery & Co — branding and identity">
+      <a class="venture" href="https://www.averyandco.co.th/" target="_blank" rel="noopener noreferrer" data-reveal aria-label="Avery & Co — branding and identity">
         <span class="v-num">01</span>
         <span class="v-name">
           <h3>Branding &amp; Identity</h3>
@@ -1465,7 +1514,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
         <span class="v-arrow" aria-hidden="true">↗</span>
       </a>
 
-      <a class="venture" href="#" data-reveal aria-label="Avery AI — AI transformation">
+      <a class="venture" href="https://ai.averyandco.co.th/" target="_blank" rel="noopener noreferrer" data-reveal aria-label="Avery AI — AI transformation">
         <span class="v-num">02</span>
         <span class="v-name">
           <h3>AI Transformation</h3>
@@ -1475,7 +1524,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
         <span class="v-arrow" aria-hidden="true">↗</span>
       </a>
 
-      <a class="venture" href="#" data-reveal aria-label="Avery Global — Asia-focused sourcing">
+      <a class="venture" href="https://www.averyandco.co.th/contact" target="_blank" rel="noopener noreferrer" data-reveal aria-label="Avery Global — Asia-focused sourcing enquiry">
         <span class="v-num">03</span>
         <span class="v-name">
           <h3>Asia-Focused Sourcing</h3>
@@ -1485,7 +1534,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
         <span class="v-arrow" aria-hidden="true">↗</span>
       </a>
 
-      <a class="venture" href="#" data-reveal aria-label="Papery — print production">
+      <a class="venture" href="https://www.paperyprint.com/" target="_blank" rel="noopener noreferrer" data-reveal aria-label="Papery — print production">
         <span class="v-num">04</span>
         <span class="v-name">
           <h3>Print &amp; Production</h3>
@@ -1495,7 +1544,7 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
         <span class="v-arrow" aria-hidden="true">↗</span>
       </a>
 
-      <a class="venture" href="#" data-reveal aria-label="Claypot King — food and beverage">
+      <a class="venture" href="https://claypotking.com/" target="_blank" rel="noopener noreferrer" data-reveal aria-label="Claypot King — food and beverage">
         <span class="v-num">05</span>
         <span class="v-name">
           <h3>Food &amp; Beverage</h3>
@@ -1665,37 +1714,37 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
     </p>
 
     <div class="thoughts-list" id="thoughtsList">
-      <a class="thought" href="post.html?id=400620ab-c1bd-8103-85df-cbd9666aaa4f" data-reveal>
+      <a class="thought" href="/thoughts/the-case-for-boring-ai/" data-reveal>
         <span class="t-date">2026.10</span>
         <span class="t-main"><h3>The Case for Boring AI</h3><p>The agent that changed my companies most sends one short message a day.</p></span>
         <span class="t-tag">AI</span>
         <span class="t-ar" aria-hidden="true">↗</span>
       </a>
-      <a class="thought" href="post.html?id=400620ab-c1bd-81d9-af2e-fed1bfceeedd" data-reveal style="transition-delay:80ms">
+      <a class="thought" href="/thoughts/where-ai-systems-actually-break/" data-reveal style="transition-delay:80ms">
         <span class="t-date">2026.10</span>
         <span class="t-main"><h3>Where AI Systems Actually Break</h3><p>Not in the model. In the quiet shared parts everything else is waiting on.</p></span>
         <span class="t-tag">AI</span>
         <span class="t-ar" aria-hidden="true">↗</span>
       </a>
-      <a class="thought" href="post.html?id=400620ab-c1bd-816b-8e87-c0c710f6d6d0" data-reveal style="transition-delay:160ms">
+      <a class="thought" href="/thoughts/label-it-by-hand-first/" data-reveal style="transition-delay:160ms">
         <span class="t-date">2026.10</span>
         <span class="t-main"><h3>Label It by Hand First</h3><p>Before you automate customer feedback, read it yourself. The categories you need are not obvious.</p></span>
         <span class="t-tag">AI</span>
         <span class="t-ar" aria-hidden="true">↗</span>
       </a>
-      <a class="thought" href="post.html?id=400620ab-c1bd-814d-be1f-df20ea23ffc1" data-reveal style="transition-delay:240ms">
+      <a class="thought" href="/thoughts/why-leaders-should-go-back-to-class-on-ai/" data-reveal style="transition-delay:240ms">
         <span class="t-date">2026.10</span>
         <span class="t-main"><h3>Why Leaders Should Go Back to Class on AI</h3><p>Two years of daily AI use. A structured course still showed me where I was guessing.</p></span>
         <span class="t-tag">AI</span>
         <span class="t-ar" aria-hidden="true">↗</span>
       </a>
-      <a class="thought" href="post.html?id=3c6620ab-c1bd-81a5-8557-dbe68b055d7c" data-reveal style="transition-delay:320ms">
+      <a class="thought" href="/thoughts/headcount-is-no-longer-the-unit/" data-reveal style="transition-delay:320ms">
         <span class="t-date">2026.08</span>
         <span class="t-main"><h3>Headcount Is No Longer the Unit</h3><p>For twenty years I sized a company by how many people it took. That number stopped meaning anything.</p></span>
         <span class="t-tag">Operating</span>
         <span class="t-ar" aria-hidden="true">↗</span>
       </a>
-      <a class="thought" href="post.html?id=3c6620ab-c1bd-81c2-9a01-f9de5eb359ad" data-reveal style="transition-delay:400ms">
+      <a class="thought" href="/thoughts/taste-is-the-last-moat/" data-reveal style="transition-delay:400ms">
         <span class="t-date">2026.07</span>
         <span class="t-main"><h3>Taste Is the Last Moat</h3><p>When everyone can generate, the only thing left to compete on is knowing what is good.</p></span>
         <span class="t-tag">Strategy</span>
@@ -1887,10 +1936,9 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
             <span class="faq-icon" aria-hidden="true"></span>
           </button>
           <div class="faq-a"><div class="faq-a-inner"><p>
-            Veerachit is based in Bangkok. He has built
-            companies in both cities since 2006 and works with founders, partners,
-            and clients across Asia and internationally. Bangkok is where most of
-            the operating work happens.
+            Veerachit is based in Bangkok. He has built companies since 2006 and
+            works with founders, partners, and clients across Asia and internationally.
+            Bangkok is where most of the operating work happens.
           </p></div></div>
         </div>
         <div class="faq-item">
@@ -2305,6 +2353,20 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
   /* ⚙ Replace these two values after Cloudflare Worker + Notion setup */
   var NOTION_PROXY = 'https://notionproxy.veerachit.workers.dev';
   var NOTION_DB_ID = '2874d0e6a9c6472e8230ab8c851c2bf7'; /* veerachit.com database */
+  var POST_SLUGS = {
+    '400620ab-c1bd-8103-85df-cbd9666aaa4f':'the-case-for-boring-ai',
+    '400620ab-c1bd-81d9-af2e-fed1bfceeedd':'where-ai-systems-actually-break',
+    '400620ab-c1bd-816b-8e87-c0c710f6d6d0':'label-it-by-hand-first',
+    '400620ab-c1bd-814d-be1f-df20ea23ffc1':'why-leaders-should-go-back-to-class-on-ai',
+    '3c6620ab-c1bd-81a5-8557-dbe68b055d7c':'headcount-is-no-longer-the-unit',
+    '3c6620ab-c1bd-81c2-9a01-f9de5eb359ad':'taste-is-the-last-moat',
+    '3c6620ab-c1bd-81e7-8a39-da56c7c227e8':'i-gave-my-companies-a-memory',
+    '369620ab-c1bd-81c1-8a5d-dbd8dc14aed8':'the-edit-is-the-work',
+    '369620ab-c1bd-8127-b593-f38306fbc0f1':'why-ai-wont-replace-the-brief',
+    '369620ab-c1bd-817a-853f-d89b6a247360':'twenty-years-one-rule',
+    '369620ab-c1bd-81d5-883f-fef7e0e826b0':'claypot-and-code',
+    '369620ab-c1bd-813f-991a-fb75a94358ba':'bangkok-and-hong-kong-are-not-the-same-city'
+  };
 
   if(NOTION_DB_ID !== 'YOUR_DATABASE_ID_HERE'){
     fetch(NOTION_PROXY + '/notion/databases/' + NOTION_DB_ID + '/query', {
@@ -2332,7 +2394,8 @@ button{font-family:inherit;cursor:pointer;border:0;background:none;color:inherit
                         ? props.Date.date.start.slice(0,7).replace('-','.')
                         : '';
         var delay   = i > 0 ? ' style="transition-delay:'+(i*80)+'ms"' : '';
-        return '<a class="thought" href="post.html?id='+page.id+'" data-reveal'+delay+'>'
+        var href = POST_SLUGS[page.id] ? '/thoughts/'+POST_SLUGS[page.id]+'/' : '/post?id='+page.id;
+        return '<a class="thought" href="'+href+'" data-reveal'+delay+'>'
           +'<span class="t-date">'+date+'</span>'
           +'<span class="t-main"><h3>'+title+'</h3>'
           +(excerpt ? '<p>'+excerpt+'</p>' : '')+'</span>'
