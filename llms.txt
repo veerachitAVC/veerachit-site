@@ -23,15 +23,15 @@
 - [The Company of 2040](https://veerachit.com/thoughts/the-company-of-2040/) (2026-11-04): Everyone will rent the same intelligence. The company of 2040 will be defined by what it refuses to delegate.
 - [องค์กรไทยต้องปรับตัวอย่างไรในยุค AI ปี 2027: เมื่อ Branding และ AI Transformation เป็นเรื่องเดียวกัน](https://veerachit.com/thoughts/how-thai-corporates-must-adapt-to-ai-in-2027/) (2026-11-04): องค์กรไทยใช้ AI เร็วขึ้นมาก แต่ส่วนใหญ่ยังอยู่ระดับพื้นฐาน ปี 2027 จะแยกองค์กรที่ทำเป็นออกจากองค์กรที่แค่มีเครื่องมือ
 - [Singularity คืออะไร และธุรกิจไทยควรเตรียมตัวอย่างไร](https://veerachit.com/thoughts/what-the-singularity-means-for-thai-business/) (2026-11-04): ไม่มีใครรู้วันที่ แต่คำถามที่ธุรกิจต้องตอบพรุ่งนี้เช้าชัดอยู่แล้ว
-- [The Case for Boring AI](https://veerachit.com/thoughts/the-case-for-boring-ai/) (2026-10-20): The agent that changed my companies most sends one short message a day.
+- [The Case for Boring AI](https://veerachit.com/thoughts/the-case-for-boring-ai/) (2026-10-20): The AI that changes a company most is often one short message a day.
 - [Where AI Systems Actually Break](https://veerachit.com/thoughts/where-ai-systems-actually-break/) (2026-10-14): Not in the model. In the quiet shared parts everything else is waiting on.
 - [Label It by Hand First](https://veerachit.com/thoughts/label-it-by-hand-first/) (2026-10-08): Before you automate customer feedback, read it yourself. The categories you need are not obvious.
-- [Why Leaders Should Go Back to Class on AI](https://veerachit.com/thoughts/why-leaders-should-go-back-to-class-on-ai/) (2026-10-02): Two years of daily AI use. A structured course still showed me where I was guessing.
-- [Headcount Is No Longer the Unit](https://veerachit.com/thoughts/headcount-is-no-longer-the-unit/) (2026-08-12): For twenty years I sized a company by how many people it took. That number stopped meaning anything.
+- [Why Leaders Should Go Back to Class on AI](https://veerachit.com/thoughts/why-leaders-should-go-back-to-class-on-ai/) (2026-10-02): Daily AI use builds deep but uneven knowledge. A structured course shows leaders where they have been guessing.
+- [Headcount Is No Longer the Unit](https://veerachit.com/thoughts/headcount-is-no-longer-the-unit/) (2026-08-12): For decades, companies were sized by how many people they took. That number is losing its meaning.
 - [Taste Is the Last Moat](https://veerachit.com/thoughts/taste-is-the-last-moat/) (2026-07-15): When everyone can generate, the only thing left to compete on is knowing what is good.
-- [I Gave My Companies a Memory](https://veerachit.com/thoughts/i-gave-my-companies-a-memory/) (2026-06-18): The jump was not a smarter model. It was the day the system stopped forgetting.
+- [Give Your Company a Memory](https://veerachit.com/thoughts/i-gave-my-companies-a-memory/) (2026-06-18): The jump is rarely a smarter model. It is the day the system stops forgetting.
 - [The Edit Is the Work](https://veerachit.com/thoughts/the-edit-is-the-work/) (2026-04-15): Good work is not about what you add. It is about what survives the cut.
-- [Why AI Won't Replace the Brief](https://veerachit.com/thoughts/why-ai-wont-replace-the-brief/) (2026-03-20): Every tool that changed how I work had one thing in common. It still needed a question.
-- [Twenty Years, One Rule](https://veerachit.com/thoughts/twenty-years-one-rule/) (2026-02-10): Two decades across five companies taught me one thing. Premium is a decision, not a price point.
-- [Claypot and Code](https://veerachit.com/thoughts/claypot-and-code/) (2026-01-18): Running a food brand and an AI company at the same time is less strange than it sounds.
+- [Why AI Won't Replace the Brief](https://veerachit.com/thoughts/why-ai-wont-replace-the-brief/) (2026-03-20): Every tool that changed how people work has one thing in common. It still needs a question.
+- [Premium Is a Decision](https://veerachit.com/thoughts/twenty-years-one-rule/) (2026-02-10): Premium is not a price point. It is a decision, made early and defended when it is expensive.
+- [Claypot and Code](https://veerachit.com/thoughts/claypot-and-code/) (2026-01-18): A claypot kitchen and an AI practice face the same question: what to preserve when everything moves fast.
 - [Bangkok and Hong Kong Are Not the Same City](https://veerachit.com/thoughts/bangkok-and-hong-kong-are-not-the-same-city/) (2025-12-05): One city moves fast and trusts instinct. The other moves fast and demands proof. Both are right.
