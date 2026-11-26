@@ -19,6 +19,7 @@
 
 ## Essays
 
+- [AI ช่วยพิสูจน์สมมติฐานรีมันน์ได้แล้ว นี่คือ Singularity หรือยัง](https://veerachit.com/thoughts/ai-riemann-hypothesis-singularity/) (2026-11-26): โจทย์อายุ 167 ปีถูกปิดลงด้วยคนหนึ่งคนกับ AI หนึ่งตัว บทเรียนสำหรับธุรกิจไม่ใช่เรื่องซูเปอร์อินเทลลิเจนซ์ แต่อยู่ที่ว่างานไหนตรวจคำตอบได้
 - [Ask a Machine Who You Are](https://veerachit.com/thoughts/ask-a-machine-who-you-are/) (2026-11-04): Long before any singularity, AI has become the first reader of your company. It can only repeat what it can read and connect.
 - [The Company of 2040](https://veerachit.com/thoughts/the-company-of-2040/) (2026-11-04): Everyone will rent the same intelligence. The company of 2040 will be defined by what it refuses to delegate.
 - [องค์กรไทยต้องปรับตัวอย่างไรในยุค AI ปี 2027: เมื่อ Branding และ AI Transformation เป็นเรื่องเดียวกัน](https://veerachit.com/thoughts/how-thai-corporates-must-adapt-to-ai-in-2027/) (2026-11-04): องค์กรไทยใช้ AI เร็วขึ้นมาก แต่ส่วนใหญ่ยังอยู่ระดับพื้นฐาน ปี 2027 จะแยกองค์กรที่ทำเป็นออกจากองค์กรที่แค่มีเครื่องมือ
